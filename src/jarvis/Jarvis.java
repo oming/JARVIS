@@ -2,17 +2,30 @@ package jarvis;
 
 import java.io.IOException;
 
+import org.json.simple.parser.ParseException;
+
 public class Jarvis {
 
 	public static void main(String[] args) {
-		MainUI window = new MainUI();
-		window.frame.setVisible(true);
+
 		try {
-			RequestGoogleSpeechAPI rj = new RequestGoogleSpeechAPI();
+			JsonParser jp = new JsonParser();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		MainUI window = new MainUI();
+		window.frame.setVisible(true);
+		// try {
+		// RequestGoogleSpeechAPI rj = new RequestGoogleSpeechAPI();
+		// } catch (IOException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
 
 		// SettingUI su = new SettingUI();
 		// su.frame.setVisible(true);
