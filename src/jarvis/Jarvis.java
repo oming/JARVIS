@@ -18,8 +18,8 @@ public class Jarvis {
 			e.printStackTrace();
 		}
 
-		MainUI window = new MainUI();
-		window.frame.setVisible(true);
+//		MainUI window = new MainUI();
+//		window.frame.setVisible(true);
 		// try {
 		// RequestGoogleSpeechAPI rj = new RequestGoogleSpeechAPI();
 		// } catch (IOException e) {
