@@ -1,8 +1,10 @@
 package jarvis;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -57,10 +59,32 @@ public class RequestGoogleSpeechAPI {
 			stringBuilder = new StringBuilder();
 			String line = null;
 			while ((line = br.readLine()) != null) {
-				stringBuilder.append(line + "\n");
+				stringBuilder.append(line);
 			}
 			System.out.println(stringBuilder);
-			
+
+			String finishResult = stringBuilder.toString().replace("{\"result\":[]}", "");
+			System.out.println(finishResult);
+			/*
+			 * To write contents of StringBuffer to a file, use BufferedWriter
+			 * class.
+			 */
+
+			String saveFileName = "/test.json";
+			Path saveFilePath = Paths.get("./temp/");
+			BufferedWriter bwr = new BufferedWriter(new FileWriter(new File(saveFilePath + saveFileName)));
+
+			// write contents of StringBuffer to a file
+			bwr.write(finishResult);
+
+			// flush the stream
+			bwr.flush();
+
+			// close the stream
+			bwr.close();
+
+			System.out.println("Content of StringBuffer written to File.");
+
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
