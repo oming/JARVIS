@@ -15,6 +15,7 @@ import org.json.simple.parser.ParseException;
 public class JsonParser {
 	// JSON 데이터
 	private String everString;
+	public String pString;
 
 	public JsonParser() throws ParseException, IOException {
 		Path path = Paths.get("./temp/test.json");
@@ -59,8 +60,14 @@ public class JsonParser {
 			// JSON name으로 추출
 			System.out.println(i + ": transcript==>" + transObject.get("transcript"));
 			System.out.println(i + ": bookInfo: confidence==>" + transObject.get("confidence"));
+			pString = (String) transObject.get("transcript");
 
 		}
 
+	}
+	
+	public String getParserString() {
+		return pString;
+		
 	}
 }

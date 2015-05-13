@@ -1,31 +1,36 @@
 package jarvis;
 
 import java.io.IOException;
+import java.util.List;
+
+import kr.co.shineware.nlp.komoran.core.analyzer.Komoran;
+import kr.co.shineware.util.common.model.Pair;
 
 import org.json.simple.parser.ParseException;
 
 public class Jarvis {
+	private static JsonParser jp;
 
 	public static void main(String[] args) {
-		
-		JavaSoundRecorder jsr = new JavaSoundRecorder();
-		
-		 try {
-		 RequestGoogleSpeechAPI rj = new RequestGoogleSpeechAPI();
-		 } catch (IOException e) {
-		 // TODO Auto-generated catch block
-		 e.printStackTrace();
-		 }
-		
-		 try {
-		 JsonParser jp = new JsonParser();
-		 } catch (ParseException e) {
-		 // TODO Auto-generated catch block
-		 e.printStackTrace();
-		 } catch (IOException e) {
-		 // TODO Auto-generated catch block
-		 e.printStackTrace();
-		 }
+
+		// JavaSoundRecorder jsr = new JavaSoundRecorder();
+
+//		try {
+//			RequestGoogleSpeechAPI rj = new RequestGoogleSpeechAPI();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+
+		try {
+			jp = new JsonParser();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// MainUI window = new MainUI(); // 메인 UI 출
 		// window.frame.setVisible(true); // 보여지
@@ -34,20 +39,20 @@ public class Jarvis {
 		// su.frame.setVisible(true);
 
 		// Scanner scan = new Scanner(System.in);
-		// String message;
-		// Komoran komoran = new Komoran("./models/models-full/");
-		// while (true) {
+		String message;
+		Komoran komoran = new Komoran("./models/models-full/");
+
 		// message = scan.nextLine();
-		// List<List<Pair<String, String>>> result = komoran.analyze(message);
-		// for (List<Pair<String, String>> eojeolResult : result) {
-		// for (Pair<String, String> wordMorph : eojeolResult) {
-		// System.out.println(wordMorph + "\n");
-		// }
-		// System.out.println();
-		// }
-		// System.out.println("end2");
-		// }
+		message = jp.getParserString();
+		
+		List<List<Pair<String, String>>> result = komoran.analyze(message);
+		for (List<Pair<String, String>> eojeolResult : result) {
+			for (Pair<String, String> wordMorph : eojeolResult) {
+				System.out.println(wordMorph + "\n");
+			}
+			System.out.println();
+		}
+		System.out.println("end2");
 
 	}
-
 }
