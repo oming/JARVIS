@@ -9,6 +9,13 @@ public class Jarvis {
 	public static void main(String[] args) {
 
 		try {
+			RequestGoogleSpeechAPI rj = new RequestGoogleSpeechAPI();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		try {
 			JsonParser jp = new JsonParser();
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -18,14 +25,8 @@ public class Jarvis {
 			e.printStackTrace();
 		}
 
-//		MainUI window = new MainUI();	// 메인 UI 출
-//		window.frame.setVisible(true);	// 보여지
-		// try {
-		// RequestGoogleSpeechAPI rj = new RequestGoogleSpeechAPI();
-		// } catch (IOException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
+		// MainUI window = new MainUI(); // 메인 UI 출
+		// window.frame.setVisible(true); // 보여지
 
 		// SettingUI su = new SettingUI();
 		// su.frame.setVisible(true);
