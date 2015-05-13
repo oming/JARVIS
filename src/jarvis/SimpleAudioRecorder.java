@@ -155,16 +155,19 @@ public class SimpleAudioRecorder extends Thread {
 	}
 
 	public static void main(String[] args) {
+//		public SimpleAudioRecorder() {
+				
 		if (args.length != 1 || args[0].equals("-h")) {
 			printUsageAndExit();
 		}
-
+//		String fi = "./temp/record.wav"
 		/*
 		 * We have made shure that there is only one command line argument. This
 		 * is taken as the filename of the soundfile to store to.
 		 */
 		String strFilename = args[0];
-		File outputFile = new File(strFilename);
+//		String strFilename = fi;
+//		File outputFile = new File(strFilename);
 
 		/*
 		 * For simplicity, the audio data format used for recording is hardcoded
