@@ -8,7 +8,8 @@ public class Jarvis {
 
 	public static void main(String[] args) {
 		
-
+		JavaSoundRecorder jsr = new JavaSoundRecorder();
+		
 		 try {
 		 RequestGoogleSpeechAPI rj = new RequestGoogleSpeechAPI();
 		 } catch (IOException e) {
