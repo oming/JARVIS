@@ -1,26 +1,30 @@
 package jarvis;
 
+import java.io.IOException;
+
+import org.json.simple.parser.ParseException;
+
 public class Jarvis {
 
 	public static void main(String[] args) {
-		SimpleAudioRecorder sar = new SimpleAudioRecorder("./temp/record.wav");
+		
 
-		// try {
-		// RequestGoogleSpeechAPI rj = new RequestGoogleSpeechAPI();
-		// } catch (IOException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
-		//
-		// try {
-		// JsonParser jp = new JsonParser();
-		// } catch (ParseException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// } catch (IOException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
+		 try {
+		 RequestGoogleSpeechAPI rj = new RequestGoogleSpeechAPI();
+		 } catch (IOException e) {
+		 // TODO Auto-generated catch block
+		 e.printStackTrace();
+		 }
+		
+		 try {
+		 JsonParser jp = new JsonParser();
+		 } catch (ParseException e) {
+		 // TODO Auto-generated catch block
+		 e.printStackTrace();
+		 } catch (IOException e) {
+		 // TODO Auto-generated catch block
+		 e.printStackTrace();
+		 }
 
 		// MainUI window = new MainUI(); // 메인 UI 출
 		// window.frame.setVisible(true); // 보여지

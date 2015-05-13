@@ -19,7 +19,8 @@ public class RequestGoogleSpeechAPI {
 	public URL url;
 
 	public RequestGoogleSpeechAPI() throws IOException {
-		Path path = Paths.get("./temp/test.flac");
+//		Path path = Paths.get("./temp/test.flac");
+		Path path = Paths.get("./temp/RecordAudio.wav");
 		byte[] data = Files.readAllBytes(path);
 
 		String urlString = "https://www.google.com/" + "speech-api/v2/recognize?" + "output=json&lang=ko-kr&key=AIzaSyCMxPcCfxrBCcwfNjCazKTPIthFtHRlECY";
@@ -36,7 +37,8 @@ public class RequestGoogleSpeechAPI {
 			connection.setDoOutput(true);
 			connection.setInstanceFollowRedirects(true);
 			connection.setRequestMethod("POST");
-			connection.setRequestProperty("Content-Type", "audio/x-flac;rate=44100");
+//			connection.setRequestProperty("Content-Type", "audio/x-flac;rate=44100");	// flac 파일 사용
+			connection.setRequestProperty("Content-Type", "audio/l16; rate=16000;");	// wav 파일 사용
 
 			/* Write the audio on bufferI/O */
 			String filepath = path.toString();
