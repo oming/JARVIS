@@ -10,17 +10,18 @@ import org.json.simple.parser.ParseException;
 
 public class Jarvis {
 	private static JsonParser jp;
-
+	private static JavaSoundRecorder jsr;
 	public static void main(String[] args) {
 
-		// JavaSoundRecorder jsr = new JavaSoundRecorder();
-
-//		try {
-//			RequestGoogleSpeechAPI rj = new RequestGoogleSpeechAPI();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		 jsr = new JavaSoundRecorder();
+		 jsr.setRecorder();
+		 
+		 try {
+		 RequestGoogleSpeechAPI rj = new RequestGoogleSpeechAPI();
+		 } catch (IOException e) {
+		 // TODO Auto-generated catch block
+		 e.printStackTrace();
+		 }
 
 		try {
 			jp = new JsonParser();
