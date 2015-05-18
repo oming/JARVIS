@@ -66,6 +66,10 @@ public class JsonParser {
 
 	}
 	
+	
+	// 테스트용으로 제작함.
+	// 맨 마지막 스트링만 반환함
+	// 차후 문자열 배열을 반환하도록 해야함.
 	public String getParserString() {
 		return pString;
 		

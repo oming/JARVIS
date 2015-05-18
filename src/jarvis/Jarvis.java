@@ -33,7 +33,7 @@ public class Jarvis {
 			e.printStackTrace();
 		}
 
-		// MainUI window = new MainUI(); // 메인 UI 출
+		// MainUI window = new MainUI(); // 메인 UI 출연.
 		// window.frame.setVisible(true); // 보여지
 
 		// SettingUI su = new SettingUI();
