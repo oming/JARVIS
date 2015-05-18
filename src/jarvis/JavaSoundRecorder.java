@@ -28,7 +28,8 @@ public class JavaSoundRecorder {
 
 	// the line from which audio data is captured
 	TargetDataLine line;
-
+	
+	
 	/**
 	 * Defines an audio format
 	 */
@@ -130,4 +131,5 @@ public class JavaSoundRecorder {
 		// start recording
 		recorder.start();
 	}
+	
 }

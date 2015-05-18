@@ -10,7 +10,7 @@ import com.gtranslate.Language;
 
 public class RequestGoogleTextToSpeech {
 
-	public static void main(String[] args) {
+	public RequestGoogleTextToSpeech() {
 		Audio audio = Audio.getInstance();
 		InputStream sound = null;
 
