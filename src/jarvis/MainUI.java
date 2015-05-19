@@ -15,7 +15,7 @@ public class MainUI implements MouseListener {
 	/**
 	 * Create the application.
 	 */
-
+	JavaSoundRecorder jsr;
 	
 	public MainUI() {
 		frame = new JFrame();
@@ -30,6 +30,8 @@ public class MainUI implements MouseListener {
 		panel.add(btnNewButton);
 		
 		btnNewButton.addMouseListener(this);
+		
+		jsr = new JavaSoundRecorder();
 	}
 
 	@Override
@@ -44,6 +46,7 @@ public class MainUI implements MouseListener {
 		// TODO Auto-generated method stub
 		System.out.println("mousePressed");
 		btnNewButton.setIcon(new ImageIcon("./res/img/startlogo.png"));
+		jsr.startCaptureAudio();
 		
 	}
 
@@ -52,6 +55,7 @@ public class MainUI implements MouseListener {
 		// TODO Auto-generated method stub
 		System.out.println("mouseReleased");
 		btnNewButton.setIcon(new ImageIcon("./res/img/stoplogo.png"));
+		jsr.stopCaptureAudio();
 	}
 
 	@Override
