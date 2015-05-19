@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 public class MainUI implements MouseListener {
 	JFrame frame;
+	JButton btnNewButton;
 	/**
 	 * Create the application.
 	 */
@@ -25,7 +26,7 @@ public class MainUI implements MouseListener {
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(new BorderLayout(0, 0));
 		
-		JButton btnNewButton = new JButton(new ImageIcon("./res/img/logo.png"));
+		btnNewButton = new JButton(new ImageIcon("./res/img/stoplogo.png"));
 		panel.add(btnNewButton);
 		
 		btnNewButton.addMouseListener(this);
@@ -34,32 +35,35 @@ public class MainUI implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-
+		System.out.println("mouseClicked");
+		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-	
+		System.out.println("mousePressed");
+		btnNewButton.setIcon(new ImageIcon("./res/img/startlogo.png"));
 		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-
+		System.out.println("mouseReleased");
+		btnNewButton.setIcon(new ImageIcon("./res/img/stoplogo.png"));
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-	
+		System.out.println("mouseEntered");
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("mouseExited");
 	}
 
 }
