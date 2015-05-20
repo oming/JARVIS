@@ -8,7 +8,20 @@ public class RunningApplications {
 	public static void main(String[] args) {
 		String addr = "http://www.naver.com";
 		Process process = null;
-		String[] cmd = new String[] { "rundll32", "url.dll", "FileProtocolHandler", addr };
+		String[] cmd;
+
+		String os = System.getProperty("os.name"); // 운영체제 정보 확인
+		System.out.println(os);
+
+		// 운영체제 선택
+		if (os.equals("Mac OS X")) {
+			cmd = new String[] { "open", "-a", "Safari", addr }; // OSX
+		} else if (os.equals("WINDOWS")) {
+			cmd = new String[] { "rundll32", "url.dll", "FileProtocolHandler", addr }; // WINDOWS
+		} else {
+			cmd = new String[] {"null"}; // 오류시
+		}
+
 		String str = null;
 
 		try {
