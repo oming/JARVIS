@@ -66,7 +66,6 @@ public class Jarvis {
 			}
 			System.out.println();
 		}
-		System.out.println("end2");
 
 	}
 }
