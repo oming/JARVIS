@@ -16,6 +16,7 @@ public class JsonParser {
 	// JSON 데이터
 	private String everString;
 	public String pString;
+	public String aString;
 
 	public JsonParser() throws ParseException, IOException {
 		Path path = Paths.get("./temp/test.json");
@@ -61,6 +62,9 @@ public class JsonParser {
 			System.out.println(i + ": transcript==>" + transObject.get("transcript"));
 			System.out.println(i + ": bookInfo: confidence==>" + transObject.get("confidence"));
 			pString = (String) transObject.get("transcript");
+			if(i == 0)
+				aString = (String) transObject.get("transcript");
+				
 
 		}
 
@@ -71,7 +75,7 @@ public class JsonParser {
 	// 맨 마지막 스트링만 반환함
 	// 차후 문자열 배열을 반환하도록 해야함.
 	public String getParserString() {
-		return pString;
+		return aString;
 		
 	}
 }

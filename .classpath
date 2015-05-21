@@ -6,7 +6,7 @@
 	<classpathentry kind="lib" path="komoran/shineware-common-2.0.jar"/>
 	<classpathentry kind="lib" path="komoran/shineware-ds-1.0.jar"/>
 	<classpathentry kind="lib" path="json-simple/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="translate0-to-text/gtranslateapi-1.0.jar"/>
-	<classpathentry kind="lib" path="translate0-to-text/jl1.0.jar"/>
+	<classpathentry kind="lib" path="translate-to-text/gtranslateapi-1.0.jar"/>
+	<classpathentry kind="lib" path="translate-to-text/jl1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
