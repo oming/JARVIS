@@ -17,6 +17,8 @@ public class Jarvis {
 		MainUI window = new MainUI(); // 메인 UI 출력
 		window.frame.setVisible(true);
 
+		
+		
 		try {
 			Thread.sleep(10000);
 		} catch (InterruptedException e1) {

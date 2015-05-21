@@ -31,7 +31,7 @@ public class MainUI implements MouseListener {
 		
 		btnNewButton.addMouseListener(this);
 		
-		jsr = new JavaSoundRecorder();
+		jsr = new JavaSoundRecorder();		// 음성 녹음 실행
 	}
 
 	@Override
