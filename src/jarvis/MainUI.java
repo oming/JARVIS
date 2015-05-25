@@ -87,8 +87,14 @@ public class MainUI implements MouseListener {
 		String message;
 		message = jp.getParserString();
 
+		System.out.println("이거 실행됨.");
 		RunningApplications ra = new RunningApplications();
-		ra.webBrowser("http://search.naver.com/search.naver?query=", message);
+//		ra.runWebBrowser("http://search.naver.com/search.naver?query=", message);
+		
+		if(message.equals("메모장"))
+			ra.runMemoPad();
+		if(message.equals("계산기"))
+			ra.runCalculator();
 		
 		rtts.TTSPlayer(message);
 
