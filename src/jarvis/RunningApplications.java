@@ -9,19 +9,21 @@ import java.io.InputStreamReader;
  *
  */
 public class RunningApplications {
+	private static String getOS;
+	String[] cmd = null;
 
-	public static void main(String[] args) {
-		String addr = "http://www.naver.com";
-		Process process = null;
-		String[] cmd = null;
-		// 운영체제 선택
-		OSValidator osv = new OSValidator();
-		switch (osv.getOS()) {
+	public RunningApplications() {
+		OSValidator osv = new OSValidator(); // 운영체제 선택
+		getOS = osv.getOS();
+	}
+
+	public void webBrowser(String addr, String word) {
+		switch (getOS) {
 		case "win":
-			cmd = new String[] { "rundll32", "url.dll", "FileProtocolHandler", addr };
+			cmd = new String[] { "rundll32", "url.dll", "FileProtocolHandler", addr + word };
 			break;
 		case "osx":
-			cmd = new String[] { "open", "-a", "Safari", addr };
+			cmd = new String[] { "open", "-a", "Safari", addr + word };
 			break;
 		case "uni":
 			break;
@@ -32,7 +34,12 @@ public class RunningApplications {
 
 			break;
 		default:
-		}
+		} // end switch
+		runProcess(); // 프로그램 실행
+	}
+
+	private void runProcess() {
+		Process process = null;
 
 		String str = null;
 
@@ -54,4 +61,5 @@ public class RunningApplications {
 
 		}
 	}
+
 }

@@ -87,9 +87,11 @@ public class MainUI implements MouseListener {
 		String message;
 		message = jp.getParserString();
 
+		RunningApplications ra = new RunningApplications();
+		ra.webBrowser("http://search.naver.com/search.naver?query=", message);
+		
 		rtts.TTSPlayer(message);
-		// SettingUI su = new SettingUI();
-		// su.frame.setVisible(true);
+
 
 		// Scanner scan = new Scanner(System.in);
 
@@ -100,7 +102,7 @@ public class MainUI implements MouseListener {
 		List<List<Pair<String, String>>> result = komoran.analyze(message);
 		for (List<Pair<String, String>> eojeolResult : result) {
 			for (Pair<String, String> wordMorph : eojeolResult) {
-				System.out.println(wordMorph + "\n");
+				System.out.println("1"+wordMorph + "\n");
 			}
 			System.out.println();
 		}
