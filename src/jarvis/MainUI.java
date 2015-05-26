@@ -83,7 +83,7 @@ public class MainUI implements MouseListener {
 			e1.printStackTrace();
 		}
 
-		RequestGoogleTextToSpeech rtts = new RequestGoogleTextToSpeech();
+//		RequestGoogleTextToSpeech rtts = new RequestGoogleTextToSpeech();
 		String message;
 		message = jp.getParserString();
 
@@ -91,27 +91,8 @@ public class MainUI implements MouseListener {
 		RunningApplications ra = new RunningApplications();
 //		ra.runWebBrowser("http://search.naver.com/search.naver?query=", message);
 		
-		if(message.equals("메모장"))
-			ra.runMemoPad();
-		if(message.equals("계산기"))
-			ra.runCalculator();
-		
-		rtts.TTSPlayer(message);
+//		rtts.TTSPlayer(message);
 
-
-		// Scanner scan = new Scanner(System.in);
-
-		Komoran komoran = new Komoran("./models/models-full/");
-
-		// message = scan.nextLine();
-
-		List<List<Pair<String, String>>> result = komoran.analyze(message);
-		for (List<Pair<String, String>> eojeolResult : result) {
-			for (Pair<String, String> wordMorph : eojeolResult) {
-				System.out.println("1"+wordMorph + "\n");
-			}
-			System.out.println();
-		}
 	}
 
 	@Override
