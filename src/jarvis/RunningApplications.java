@@ -50,6 +50,38 @@ public class RunningApplications {
 	}
 
 	/**
+	 * @author hyosang
+	 * @param addr
+	 *            : 검색할 주소
+	 * @param word
+	 *            : 검색할 단어
+	 * @return 웹브라우저를 통해 검색 내용 결과 출력
+	 */
+	public void runWebBrowser() {
+
+		switch (getOS) {
+		case "win":
+			cmd = new String[] { "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"};
+			break;
+		case "osx":
+			cmd = new String[] { "open", "-a", "Safari" };
+			break;
+		case "uni":
+			System.out.println("에러 발생 webBrowser");
+			break;
+		case "sol":
+			System.out.println("에러 발생 webBrowser");
+			break;
+		case "err":
+			System.out.println("에러 발생 webBrowser");
+			break;
+		default:
+			System.out.println("디폴트 영역 실행됨.");
+		} // end switch
+		(new RunThread()).start();
+	}
+
+	/**
 	 * 음악 플레이어 실행
 	 */
 	public void runMusicPlayer() {
