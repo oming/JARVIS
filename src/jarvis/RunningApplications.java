@@ -55,8 +55,7 @@ public class RunningApplications {
 	public void runMusicPlayer() {
 		switch (getOS) {
 		case "win":
-			cmd = new String[] { "mediaplayer.exe" };
-			System.out.println("memo in " + cmd);
+			cmd = new String[] { "C:\\Program Files\\iTunes\\iTunes.exe" };
 			break;
 		case "osx":
 			cmd = new String[] { "open", "-a", "iTunes.app" };
@@ -74,7 +73,7 @@ public class RunningApplications {
 			System.out.println("디폴트 영역 실행됨.");
 
 		} // end switch
-		System.out.println("runMemopad");
+		System.out.println("runMusicPlayer");
 		(new RunThread()).start();
 	}
 
@@ -84,7 +83,7 @@ public class RunningApplications {
 	public void runKaKaoTalk() {
 		switch (getOS) {
 		case "win":
-			cmd = new String[] { "C:\\Program Files (x86)\\Kakao\\KakaoTalk" };
+			cmd = new String[] { "C:\\Program Files (x86)\\Kakao\\KakaoTalk\\KakaoTalk.exe" };
 			break;
 		case "osx":
 			cmd = new String[] { "open", "-a", "KaKaoTalk" };
