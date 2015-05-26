@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 public class RunningApplications {
 	private String getOS;
 	String[] cmd;
-	
+
 	public RunningApplications() {
 		OSValidator osv = new OSValidator(); // 운영체제 선택
 		getOS = osv.getOS();
@@ -49,14 +49,17 @@ public class RunningApplications {
 		(new RunThread()).start();
 	}
 
-	public void runMemoPad() {
+	/**
+	 * 음악 플레이어 실행
+	 */
+	public void runMusicPlayer() {
 		switch (getOS) {
 		case "win":
-			cmd = new String[] { "notepad.exe" };
+			cmd = new String[] { "mediaplayer.exe" };
 			System.out.println("memo in " + cmd);
 			break;
 		case "osx":
-			cmd = new String[] { "open", "-a", "Safari" };
+			cmd = new String[] { "open", "-a", "iTunes.app" };
 			break;
 		case "uni":
 			System.out.println("에러 발생 webBrowser");
@@ -75,6 +78,66 @@ public class RunningApplications {
 		(new RunThread()).start();
 	}
 
+	/**
+	 * 카카오톡 실행
+	 */
+	public void runKaKaoTalk() {
+		switch (getOS) {
+		case "win":
+			cmd = new String[] { "C:\\Program Files (x86)\\Kakao\\KakaoTalk" };
+			break;
+		case "osx":
+			cmd = new String[] { "open", "-a", "KaKaoTalk" };
+			break;
+		case "uni":
+			System.out.println("에러 발생 webBrowser");
+			break;
+		case "sol":
+			System.out.println("에러 발생 webBrowser");
+			break;
+		case "err":
+			System.out.println("에러 발생 webBrowser");
+			break;
+		default:
+			System.out.println("디폴트 영역 실행됨.");
+
+		} // end switch
+		System.out.println("runKakaoTalk");
+		(new RunThread()).start();
+	}
+
+	/**
+	 * 메모장 실행
+	 */
+	public void runMemoPad() {
+		switch (getOS) {
+		case "win":
+			cmd = new String[] { "notepad.exe" };
+			System.out.println("memo in " + cmd);
+			break;
+		case "osx":
+			cmd = new String[] { "open", "-a", "Notes" };
+			break;
+		case "uni":
+			System.out.println("에러 발생 webBrowser");
+			break;
+		case "sol":
+			System.out.println("에러 발생 webBrowser");
+			break;
+		case "err":
+			System.out.println("에러 발생 webBrowser");
+			break;
+		default:
+			System.out.println("디폴트 영역 실행됨.");
+
+		} // end switch
+		System.out.println("runMemopad");
+		(new RunThread()).start();
+	}
+
+	/**
+	 * 계산기 실행
+	 */
 	public void runCalculator() {
 		switch (getOS) {
 		case "win":
@@ -82,7 +145,7 @@ public class RunningApplications {
 			System.out.println("calc in" + cmd);
 			break;
 		case "osx":
-			cmd = new String[] { "open", "-a", "Safari" };
+			cmd = new String[] { "open", "-a", "Calculator" };
 			break;
 		case "uni":
 			System.out.println("에러 발생 webBrowser");
@@ -111,7 +174,7 @@ public class RunningApplications {
 			try {
 
 				// 프로세스 빌더를 통하여 외부 프로그램 실행
-				System.out.println("thread in :" +cmd);
+				System.out.println("thread in :" + cmd);
 				process = new ProcessBuilder(cmd).start();
 
 				// 외부 프로그램의 표준출력 상태 버퍼에 저장
