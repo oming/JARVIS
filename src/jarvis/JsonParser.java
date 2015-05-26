@@ -60,7 +60,7 @@ public class JsonParser {
 			JSONObject transObject = (JSONObject) alternativeInfoArray.get(i);
 			// JSON name으로 추출
 			System.out.println(i + ": transcript==>" + transObject.get("transcript"));
-			System.out.println(i + ": bookInfo: confidence==>" + transObject.get("confidence"));
+			System.out.println(i + ": confidence==>" + transObject.get("confidence"));
 			pString = (String) transObject.get("transcript");
 			if(i == 0)
 				aString = (String) transObject.get("transcript");
@@ -71,9 +71,10 @@ public class JsonParser {
 	}
 	
 	
-	// 테스트용으로 제작함.
-	// 맨 마지막 스트링만 반환함
-	// 차후 문자열 배열을 반환하도록 해야함.
+	/**
+	 * JSON파일에서 가장 정확도가 높은 문자열을 반환한다.
+	 * @return 문자열
+	 */
 	public String getParserString() {
 		return aString;
 		
