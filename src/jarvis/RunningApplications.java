@@ -61,7 +61,7 @@ public class RunningApplications {
 
 		switch (getOS) {
 		case "win":
-			cmd = new String[] { "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"};
+			cmd = new String[] { "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe" };
 			break;
 		case "osx":
 			cmd = new String[] { "open", "-a", "Safari" };
