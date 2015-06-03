@@ -19,6 +19,7 @@ import org.json.simple.parser.ParseException;
 public class MainUI implements MouseListener {
 	private static JsonParser jp;
 	private static JavaSoundRecorder jsr;
+	private static MorphemeAnalysis ma;
 	JFrame frame;
 	JButton btnNewButton;
 
@@ -41,6 +42,7 @@ public class MainUI implements MouseListener {
 		btnNewButton.addMouseListener(this);
 		frame.setVisible(true);
 		jsr = new JavaSoundRecorder(); // 음성 녹음 실행
+		ma = new MorphemeAnalysis();
 
 	}
 
@@ -83,13 +85,11 @@ public class MainUI implements MouseListener {
 			e1.printStackTrace();
 		}
 
-//		RequestGoogleTextToSpeech rtts = new RequestGoogleTextToSpeech();
+		RequestGoogleTextToSpeech rtts = new RequestGoogleTextToSpeech();
 		String message;
 		message = jp.getParserString();
 
-		System.out.println("이거 실행됨.");
-		RunningApplications ra = new RunningApplications();
-//		ra.runWebBrowser("http://search.naver.com/search.naver?query=", message);
+		ma.analysis(ma.getParsing(message));
 		
 //		rtts.TTSPlayer(message);
 
