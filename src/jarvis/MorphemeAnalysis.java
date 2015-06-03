@@ -14,9 +14,11 @@ import kr.co.shineware.util.common.model.Pair;
  */
 public class MorphemeAnalysis {
 	Komoran komoran;
+	RunningApplications ra;
 
 	public MorphemeAnalysis() {
 		komoran = new Komoran("./models/models-full/");
+		ra = new RunningApplications();
 	}
 
 	public List<String> getParsing(String message) {
@@ -36,15 +38,46 @@ public class MorphemeAnalysis {
 	} // end getParsing
 
 	public void analysis(List<String> list) {
+		System.out.println("-----1231231--------");
+		System.out.println(list.toString());
+		System.out.println("------123123-------");
 		for (String s : list) {
 			switch (s) {
 			case "실행":
+				for (String b : list) {
+					switch (b) {
+					case "네이버":
+						break;
+					case "구글":
+						break;
+					case "다음":
+						break;
+					} // end switch
+				} // end for
 				System.out.println("실행됨");
 				break;
 			case "검색":
 				System.out.println("검색됨");
+				System.out.println("-------------");
+				System.out.println(list.toString());
+				System.out.println("-------------");
+				for (String b : list) {
+					switch (b) {
+					case "네이버":
+						ra.runWebBrowser("http://search.naver.com/search.naver?ie=utf8&where=nexearch&query=", b);
+						break;
+					case "구글":
+						break;
+					case "다음":
+						break;
+					default:
+						System.out.println("오류남.");
+					} // end switch
+				} // end for
+
 				break;
 			default:
+				System.out.println(s);
 				break;
 			} // close switch
 		} // close for
