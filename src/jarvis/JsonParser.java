@@ -14,9 +14,9 @@ import org.json.simple.parser.ParseException;
 
 public class JsonParser {
 	// JSON 데이터
-	private String everString;
-	public String pString;
-	public String aString;
+	private String everString = null;
+	public String pString = null;
+	public String aString = null;
 
 	public JsonParser() throws ParseException, IOException {
 		Path path = Paths.get("./temp/test.json");
@@ -27,6 +27,7 @@ public class JsonParser {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("내용이 없습니다.");
 		}
 		try {
 			StringBuilder sb = new StringBuilder();
@@ -55,15 +56,19 @@ public class JsonParser {
 
 		for (int i = 0; i < alternativeInfoArray.size(); i++) {
 
-			System.out.println("=BOOK_" + i + " ===========================================");
+//			System.out.println("=BOOK_" + i + " ===========================================");
 			// 배열 안에 있는것도 JSON형식 이기 때문에 JSON Object 로 추출
 			JSONObject transObject = (JSONObject) alternativeInfoArray.get(i);
 			// JSON name으로 추출
-			System.out.println(i + ": transcript==>" + transObject.get("transcript"));
-			System.out.println(i + ": confidence==>" + transObject.get("confidence"));
+//			System.out.println(i + ": transcript==>" + transObject.get("transcript"));
+//			System.out.println(i + ": confidence==>" + transObject.get("confidence"));
 			pString = (String) transObject.get("transcript");
-			if(i == 0)
+			if(i == 0) {
 				aString = (String) transObject.get("transcript");
+				if(aString.isEmpty()) {
+					aString = "결과를 찾을수 없습니다.";
+				}
+			}
 				
 
 		}
