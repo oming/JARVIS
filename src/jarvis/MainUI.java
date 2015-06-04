@@ -51,14 +51,14 @@ public class MainUI implements MouseListener {
 		// TODO Auto-generated method stub
 		System.out.println("mouseClicked");
 
-	} 
+	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("mousePressed");
 		btnNewButton.setIcon(new ImageIcon("./res/img/startlogo.png"));
-		jsr.startCaptureAudio();	// 오디오 캡쳐 시작
+		jsr.startCaptureAudio(); // 오디오 캡쳐 시작
 
 	}
 
@@ -88,10 +88,9 @@ public class MainUI implements MouseListener {
 		RequestGoogleTextToSpeech rtts = new RequestGoogleTextToSpeech();
 		String message;
 		message = jp.getParserString();
-
 		ma.analysis(ma.getParsing(message));
-		
-//		rtts.TTSPlayer(message);
+
+		rtts.TTSPlayer(message + "합니다.");
 
 	}
 
