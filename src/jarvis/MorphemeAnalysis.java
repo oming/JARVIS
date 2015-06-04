@@ -28,7 +28,7 @@ public class MorphemeAnalysis {
 
 		for (List<Pair<String, String>> eojeolResult : result) {
 			for (Pair<String, String> wordMorph : eojeolResult) {
-				if (wordMorph.getSecond().equals("NNG"))
+				if (wordMorph.getSecond().equals("NNG") || wordMorph.getSecond().equals("NNP"))
 					// System.out.println(wordMorph.getFirst() + "//" +
 					// wordMorph.getSecond());
 					mList.add(wordMorph.getFirst());
@@ -38,9 +38,8 @@ public class MorphemeAnalysis {
 	} // end getParsing
 
 	public void analysis(List<String> list) {
-		System.out.println("-----1231231--------");
-		System.out.println(list.toString());
-		System.out.println("------123123-------");
+		System.out.println("in analysis....");
+		System.out.println(list);
 		for (String s : list) {
 			switch (s) {
 			case "실행":
@@ -57,10 +56,8 @@ public class MorphemeAnalysis {
 				System.out.println("실행됨");
 				break;
 			case "검색":
-				System.out.println("검색됨");
-				System.out.println("-------------");
-				System.out.println(list.toString());
-				System.out.println("-------------");
+				System.out.println("in 검색....");
+				System.out.println(list);
 				for (String b : list) {
 					switch (b) {
 					case "네이버":
