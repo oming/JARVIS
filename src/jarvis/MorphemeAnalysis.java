@@ -43,27 +43,46 @@ public class MorphemeAnalysis {
 		for (String s : list) {
 			switch (s) {
 			case "실행":
+				// 실행 분기 실행
+				list.remove(s);
 				for (String b : list) {
 					switch (b) {
-					case "네이버":
+					case "브라우저":
+					case "인터넷":
+						ra.runWebBrowser();
 						break;
-					case "구글":
+					case "메모장":
+						ra.runMemoPad();
 						break;
-					case "다음":
+					case "음악":
+					case "노래":
+						ra.runMusicPlayer();
+						break;
+					case "카카오톡":
+					case "카톡":
+						ra.runKaKaoTalk();
+						break;
+						
+					case "계산기":
+						ra.runCalculator();
 						break;
 					} // end switch
 				} // end for
-				System.out.println("실행됨");
 				break;
+				// 실행 분기 종료
 			case "검색":
-				System.out.println("in 검색....");
-				System.out.println(list);
+				// 검색 분기 시작
+				list.remove(s);	// 현재 검색된 내용을 삭제함
+
 				for (String b : list) {
 					switch (b) {
 					case "네이버":
-						ra.runWebBrowser("http://search.naver.com/search.naver?ie=utf8&where=nexearch&query=", b);
+						list.remove(b); // 현재 검색된 내용을 삭제함
+						ra.runWebBrowser("http://search.naver.com/search.naver?ie=utf8&where=nexearch&query=", list.get(0));
 						break;
 					case "구글":
+						list.remove(b);// 현재 검색된 내용을 삭제함
+						ra.runWebBrowser("http://www.google.co.kr/search?q=", list.get(0));
 						break;
 					case "다음":
 						break;
@@ -73,8 +92,9 @@ public class MorphemeAnalysis {
 				} // end for
 
 				break;
+				// 검색 분기 종료
 			default:
-				System.out.println(s);
+				System.out.println("명령어 실행 오류 발생");
 				break;
 			} // close switch
 		} // close for
