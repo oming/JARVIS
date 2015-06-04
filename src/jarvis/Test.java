@@ -1,6 +1,7 @@
 package jarvis;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Test {
 
@@ -8,9 +9,15 @@ public class Test {
 		RunningApplications ra = new RunningApplications();
 		
 		MorphemeAnalysis ma = new MorphemeAnalysis();
-		List<String> mList = ma.getParsing("네이버에서 삼성을 검색하고 결과 실행");
+		String message;
+		Scanner s = new Scanner(System.in);
+		while(true) {
+			message = s.nextLine();
+			
+			List<String> mList = ma.getParsing(message);
+			ma.analysis(mList);
+		}
 
-		ma.analysis(mList);
 
 	}
 
