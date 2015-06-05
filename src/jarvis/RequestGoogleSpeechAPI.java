@@ -65,7 +65,7 @@ public class RequestGoogleSpeechAPI {
 			}
 			System.out.println(stringBuilder);
 
-			String finishResult = stringBuilder.toString().replace("{\"result\":[]}", "");
+			String finishResult = stringBuilder.toString().replace("{\"result\":[]}", ""); // 불필요한 정보 삭제
 			System.out.println(finishResult);
 			/*
 			 * To write contents of StringBuffer to a file, use BufferedWriter
