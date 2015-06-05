@@ -75,22 +75,19 @@ public class MainUI implements MouseListener {
 			e1.printStackTrace();
 		}
 
-		try {
-			jp = new JsonParser();
-		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		jp = new JsonParser();
 
 		RequestGoogleTextToSpeech rtts = new RequestGoogleTextToSpeech();
 		String message;
 		message = jp.getParserString();
+		System.out.println(message);
+		// 메시지가 비었다면 아무것도 실행하지 않는다.
+		if(message.equals(null))
+			message = "명령을 내려주세요.";
+		
 		ma.analysis(ma.getParsing(message));
 
-		rtts.TTSPlayer(message + "합니다.");
+//		rtts.TTSPlayer(message + "합니다.");
 
 	}
 
