@@ -15,10 +15,12 @@ import kr.co.shineware.util.common.model.Pair;
 public class MorphemeAnalysis {
 	Komoran komoran;
 	RunningApplications ra;
+	RequestGoogleTextToSpeech rgtts;
 
 	public MorphemeAnalysis() {
 		komoran = new Komoran("./models/models-full/");
 		ra = new RunningApplications();
+		rgtts = new RequestGoogleTextToSpeech();
 	}
 
 	public List<String> getParsing(String message) {
@@ -38,64 +40,94 @@ public class MorphemeAnalysis {
 	} // end getParsing
 
 	public void analysis(List<String> list) {
-		System.out.println("in analysis....");
-		System.out.println(list);
-		for (String s : list) {
+		loop: for (String s : list) {
 			switch (s) {
 			case "실행":
 				// 실행 분기 실행
-				list.remove(s);
+				list.remove(s); // 현재 검색된 내용을 삭제함
 				for (String b : list) {
 					switch (b) {
 					case "브라우저":
 					case "인터넷":
 						ra.runWebBrowser();
-						break;
+						rgtts.TTSPlayer("브라우저를 실행합니다.");
+						break loop;
+
 					case "메모장":
 						ra.runMemoPad();
-						break;
+						rgtts.TTSPlayer("메모장을 실행합니다.");
+						break loop;
+
 					case "음악":
 					case "노래":
 						ra.runMusicPlayer();
-						break;
+						rgtts.TTSPlayer("음악을 실행합니다.");
+						break loop;
+
 					case "카카오톡":
 					case "카톡":
 						ra.runKaKaoTalk();
-						break;
-						
+						rgtts.TTSPlayer("카카오톡을 실행합니다.");
+						break loop;
+
 					case "계산기":
 						ra.runCalculator();
-						break;
+						rgtts.TTSPlayer("계산기를 실행합니다.");
+						break loop;
 					} // end switch
 				} // end for
 				break;
-				// 실행 분기 종료
+			// 실행 분기 종료
+
 			case "검색":
 				// 검색 분기 시작
-				list.remove(s);	// 현재 검색된 내용을 삭제함
+				list.remove(s); // 현재 검색된 내용을 삭제함
 
 				for (String b : list) {
 					switch (b) {
 					case "네이버":
 						list.remove(b); // 현재 검색된 내용을 삭제함
 						ra.runWebBrowser("http://search.naver.com/search.naver?ie=utf8&where=nexearch&query=", list.get(0));
-						break;
+						rgtts.TTSPlayer("네이버에서 " + list.get(0) + "를 검색합니다.");
+						break loop;
 					case "구글":
 						list.remove(b);// 현재 검색된 내용을 삭제함
 						ra.runWebBrowser("http://www.google.co.kr/search?q=", list.get(0));
-						break;
+						rgtts.TTSPlayer("구글에서 " + list.get(0) + "를 검색합니다.");
+						break loop;
 					case "다음":
-						break;
+						break loop;
 					default:
 						System.out.println("오류남.");
 					} // end switch
 				} // end for
 
 				break;
-				// 검색 분기 종료
-			default:
-				System.out.println("명령어 실행 오류 발생");
+			// 검색 분기 종료
+
+			case "자비스":
+				// 호출 분기 시작
+				for (String b : list) {
+					switch (b) {
+					case "안녕":
+						list.remove(b); // 현재 검색된 내용을 삭제함
+						rgtts.TTSPlayer("예스 마스터 안녕하세요.");
+						break loop;
+					case "뭐해":
+						list.remove(b);// 현재 검색된 내용을 삭제함
+						rgtts.TTSPlayer("대기 중입니다.");
+						break loop;
+
+					default:
+						rgtts.TTSPlayer("예스 마스터!");
+						break loop;
+					} // end switch
+				} // end for
+
 				break;
+			// 호출 분기 종료.
+			default:
+				System.out.println("명령어 실행 오류");
 			} // close switch
 		} // close for
 
