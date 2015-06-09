@@ -23,6 +23,11 @@ public class MorphemeAnalysis {
 		rgtts = new RequestGoogleTextToSpeech();
 	}
 
+	/**
+	 * 메시지를 입력받아 사용자가 지정한 단어로 변환하여 메시지를 파싱함
+	 * @param message
+	 * @return NNG, NNP 단어를 반환
+	 */
 	public List<String> getParsing(String message) {
 		List<String> mList = new ArrayList<String>();
 
@@ -35,6 +40,7 @@ public class MorphemeAnalysis {
 					// wordMorph.getSecond());
 					mList.add(wordMorph.getFirst());
 			}
+			
 		}
 		return mList;
 	} // end getParsing
@@ -107,11 +113,12 @@ public class MorphemeAnalysis {
 
 			case "자비스":
 				// 호출 분기 시작
+				list.remove(s); // 현재 검색된 내용을 삭제함
 				for (String b : list) {
 					switch (b) {
 					case "안녕":
 						list.remove(b); // 현재 검색된 내용을 삭제함
-						rgtts.TTSPlayer("예스 마스터 안녕하세요.");
+						rgtts.TTSPlayer("안녕하세요.");
 						break loop;
 					case "뭐해":
 						list.remove(b);// 현재 검색된 내용을 삭제함
