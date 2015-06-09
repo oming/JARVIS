@@ -194,6 +194,36 @@ public class RunningApplications {
 		System.out.println("runCalculate");
 		(new RunThread()).start();
 	}
+	
+	/**
+	 * 동영상 플레이어 실행
+	 */
+	public void runVideoPlayer() {
+		switch (getOS) {
+		case "win":
+			cmd = new String[] { "C:\\Program Files (x86)\\DAUM\\PotPlayer\\PotPlayer.exe" };
+			System.out.println("Video in" + cmd);
+			break;
+		case "osx":
+			cmd = new String[] { "open", "-a", "VLC" };
+			break;
+		case "uni":
+			System.out.println("에러 발생 webBrowser");
+			break;
+		case "sol":
+			System.out.println("에러 발생 webBrowser");
+			break;
+		case "err":
+			System.out.println("에러 발생 webBrowser");
+			break;
+		default:
+			System.out.println("디폴트 영역 실행됨.");
+
+		} // end switch
+		System.out.println("runCalculate");
+		(new RunThread()).start();
+	}
+
 
 	// 스레드를 내부 클래스로 만들어 필드에 접근하기 쉽게 한다.
 	class RunThread extends Thread {
