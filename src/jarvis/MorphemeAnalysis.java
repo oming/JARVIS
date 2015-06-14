@@ -25,6 +25,7 @@ public class MorphemeAnalysis {
 
 	/**
 	 * 메시지를 입력받아 사용자가 지정한 단어로 변환하여 메시지를 파싱함
+	 * 
 	 * @param message
 	 * @return NNG, NNP 단어를 반환
 	 */
@@ -40,7 +41,7 @@ public class MorphemeAnalysis {
 					// wordMorph.getSecond());
 					mList.add(wordMorph.getFirst());
 			}
-			
+
 		}
 		return mList;
 	} // end getParsing
@@ -80,6 +81,13 @@ public class MorphemeAnalysis {
 						ra.runCalculator();
 						rgtts.TTSPlayer("계산기를 실행합니다.");
 						break loop;
+
+					case "롤":
+					case "리그오브레전드":
+						ra.runGameLOL();
+						rgtts.TTSPlayer("계산기를 실행합니다.");
+						break loop;
+
 					} // end switch
 				} // end for
 				break;
