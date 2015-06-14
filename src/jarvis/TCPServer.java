@@ -1,53 +1,45 @@
 package jarvis;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class TCPServer implements Runnable {
+public class TCPServer {
+	private static MorphemeAnalysis ma;
 
-	public static final int ServerPort = 9999;
-	public static final String ServerIP = "218.159.70.40";
-
-	@Override
-	public void run() {
-
+	public static void main(String[] args) throws IOException{
+		
+		ServerSocket serverSocket = null;
+		Socket clientSocket = null;
+		PrintWriter out = null;
+		BufferedReader in = null;
+		
+		serverSocket = new ServerSocket(5555);
+		ma = new MorphemeAnalysis();
+		
 		try {
-			System.out.println("S: Connecting...");
-			ServerSocket serverSocket = new ServerSocket(ServerPort);
-
+			clientSocket = serverSocket.accept();
+			System.out.println("Client connect");
+			out = new PrintWriter(clientSocket.getOutputStream(), true);
+			in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 			while (true) {
-				Socket client = serverSocket.accept();
-				System.out.println("S: Receiving...");
-				try {
-					BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-					String str = in.readLine();
-					System.out.println("S: Received: '" + str + "'");
-
-					PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(client.getOutputStream())), true);
-					out.println("Server Received " + str);
-				} catch (Exception e) {
-					System.out.println("S: Error");
-					e.printStackTrace();
-				} finally {
-					client.close();
-					System.out.println("S: Done.");
-				}
+				String inputLine = null;
+				inputLine = in.readLine();
+				System.out.println("클라이언트로부터 받은 문자열 : " + inputLine);
+				ma.analysis(ma.getParsing(inputLine));
+				out.println(inputLine);
+				if (inputLine.equals("quit"))
+					break;
 			}
-		} catch (Exception e) {
-			System.out.println("S: Error");
-			e.printStackTrace();
+			out.close();
+			in.close();
+			clientSocket.close();
+			serverSocket.close();
+			} catch (Exception e){
+				e.printStackTrace();
 		}
-	}
-
-	public static void main(String[] args) {
-
-		Thread desktopServerThread = new Thread(new TCPServer());
-		desktopServerThread.start();
-
 	}
 }
