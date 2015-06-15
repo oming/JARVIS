@@ -45,6 +45,7 @@ public class MorphemeAnalysis {
 		}
 		return mList;
 	} // end getParsing
+	
 
 	public void analysis(List<String> list) {
 		loop: for (String s : list) {
@@ -85,7 +86,7 @@ public class MorphemeAnalysis {
 					case "롤":
 					case "리그오브레전드":
 						ra.runGameLOL();
-						rgtts.TTSPlayer("계산기를 실행합니다.");
+						rgtts.TTSPlayer("리그오브레전드를 실행합니다.");
 						break loop;
 
 					} // end switch

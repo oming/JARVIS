@@ -44,6 +44,9 @@ public class MainUI implements MouseListener {
 		jsr = new JavaSoundRecorder(); // 음성 녹음 실행
 		ma = new MorphemeAnalysis();
 
+		// MobiJARVIS 접속 가능하도록 함.
+		TCPServer tcps = new TCPServer(ma);
+		tcps.run();
 	}
 
 	@Override
@@ -82,12 +85,12 @@ public class MainUI implements MouseListener {
 		message = jp.getParserString();
 		System.out.println(message);
 		// 메시지가 비었다면 아무것도 실행하지 않는다.
-		if(message.equals(null))
+		if (message.equals(null))
 			message = "명령을 내려주세요.";
-		
+
 		ma.analysis(ma.getParsing(message));
 
-//		rtts.TTSPlayer(message + "합니다.");
+		// rtts.TTSPlayer(message + "합니다.");
 
 	}
 
