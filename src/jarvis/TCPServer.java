@@ -48,7 +48,7 @@ public class TCPServer implements Runnable {
 					if(list.get(i).equals("원격"))
 					{
 						list.remove(i); // 현재 검색된 내용을 삭제함
-						ma.analysis(ma.getParsing(inputLine));
+						ma.analysis(list);
 						out.println(ma.getParsing(inputLine));
 
 					}
