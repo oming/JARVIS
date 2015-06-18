@@ -45,7 +45,6 @@ public class MorphemeAnalysis {
 		}
 		return mList;
 	} // end getParsing
-	
 
 	public void analysis(List<String> list) {
 		loop: for (String s : list) {
@@ -88,7 +87,9 @@ public class MorphemeAnalysis {
 						ra.runGameLOL();
 						rgtts.TTSPlayer("리그오브레전드를 실행합니다.");
 						break loop;
-
+					default:
+						rgtts.TTSPlayer("명령어를 이해할 수 없습니다.");
+						break loop;
 					} // end switch
 				} // end for
 				break;
@@ -103,12 +104,12 @@ public class MorphemeAnalysis {
 					case "네이버":
 						list.remove(b); // 현재 검색된 내용을 삭제함
 						ra.runWebBrowser("http://search.naver.com/search.naver?ie=utf8&where=nexearch&query=", list.get(0));
-						rgtts.TTSPlayer("네이버에서 " + list.get(0) + "를 검색합니다.");
+						rgtts.TTSPlayer("네이버에서 " + list.get(0) + "을 검색합니다.");
 						break loop;
 					case "구글":
 						list.remove(b);// 현재 검색된 내용을 삭제함
 						ra.runWebBrowser("http://www.google.co.kr/search?q=", list.get(0));
-						rgtts.TTSPlayer("구글에서 " + list.get(0) + "를 검색합니다.");
+						rgtts.TTSPlayer("구글에서 " + list.get(0) + "을 검색합니다.");
 						break loop;
 					case "다음":
 						break loop;
@@ -122,7 +123,7 @@ public class MorphemeAnalysis {
 
 			case "자비스":
 				// 호출 분기 시작
-				list.remove(s); // 현재 검색된 내용을 삭제함
+				// list.remove(s); // 현재 검색된 내용을 삭제함
 				for (String b : list) {
 					switch (b) {
 					case "안녕":
@@ -135,7 +136,7 @@ public class MorphemeAnalysis {
 						break loop;
 
 					default:
-						rgtts.TTSPlayer("예스 마스터!");
+						rgtts.TTSPlayer("네 마스터!");
 						break loop;
 					} // end switch
 				} // end for
